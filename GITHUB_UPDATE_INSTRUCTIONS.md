@@ -18,11 +18,11 @@ Then run:
 
 ```bash
 cd /Users/hoodieb/Documents/VSCODE/Portfolio
-git remote set-url origin https://github.com/BYasuoka/engineering-portfolio.git
+git remote set-url origin git@github.com:BYasuoka/engineering-portfolio.git
 git push -u origin main
 ```
 
-If GitHub asks you to authenticate, follow the browser or token prompt.
+Make sure your GitHub SSH key is already added to your GitHub account.
 
 ## Normal update workflow
 
@@ -34,6 +34,22 @@ git status
 git add .
 git commit -m "Update portfolio site"
 git push
+```
+
+## Check the current remote
+
+If you ever want to verify the repo is using SSH:
+
+```bash
+cd /Users/hoodieb/Documents/VSCODE/Portfolio
+git remote -v
+```
+
+You should see:
+
+```bash
+origin  git@github.com:BYasuoka/engineering-portfolio.git (fetch)
+origin  git@github.com:BYasuoka/engineering-portfolio.git (push)
 ```
 
 ## Run the site locally before pushing

@@ -18,13 +18,13 @@ This folder now contains a simple static portfolio website starter for your pers
 From the `Portfolio` folder:
 
 ```bash
-python3 server.py
+python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000`.
 
-Use `server.py` if you want the interactive Python budget form to work. A plain static server or
-double-clicking `index.html` will render the pages, but the budget API will not be available.
+You can also use `python3 server.py`, but the budget calculator no longer depends on a Python API and
+will work on normal static hosting and GitHub Pages.
 
 ## First edits to make
 
@@ -37,7 +37,7 @@ double-clicking `index.html` will render the pages, but the budget API will not 
 ## Current placeholder setup
 
 - Some project cards still use placeholder SVG graphics where the source folder did not include a dedicated preview image.
-- The budgeting project now includes a Python-backed demo form served through `server.py`.
+- The budgeting project now includes a browser-based calculator that reads the stored tax CSV files directly.
 - The LabVIEW stress-strain page now includes a generated graph from `4130 Steel 20C#1.lvm`.
 - Navigation is already wired for desktop and mobile.
 - Your current headshot lives in `assets/images/`.

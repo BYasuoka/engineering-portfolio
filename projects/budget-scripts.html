@@ -74,12 +74,12 @@
 
         <section class="panel full-width-panel">
           <p class="section-kicker">Interactive Demo</p>
-          <h2>Try the Python-backed budget summary</h2>
+          <h2>Try the browser-based budget summary</h2>
           <p>
-            This form sends your inputs to a small Python API that uses the same progressive tax logic
-            as the budgeting scripts in this project folder.
+            This form runs directly in the browser using the same tax-bracket CSV files stored in this
+            project folder, so it still works when the portfolio is hosted on GitHub Pages.
           </p>
-          <form class="budget-form" data-budget-form>
+          <form class="budget-form" data-budget-form data-tax-dir="../project-files/budget-scripts">
             <label class="field">
               <span>Gross annual income</span>
               <input type="number" name="gross_income" min="0" step="1" placeholder="85000" required />

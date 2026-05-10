@@ -18,6 +18,14 @@ if (menuToggle && siteNav) {
 const budgetForm = document.querySelector("[data-budget-form]");
 const budgetStatus = document.querySelector("[data-budget-status]");
 const budgetResults = document.querySelector("[data-budget-results]");
+const budgetStateNames = {
+  CA: "California",
+  CO: "Colorado",
+  PA: "Pennsylvania",
+  WA: "Washington",
+  WI: "Wisconsin",
+};
+const taxBracketCache = new Map();
 
 function formatCurrency(value) {
   return new Intl.NumberFormat("en-US", {
@@ -25,6 +33,45 @@ function formatCurrency(value) {
     currency: "USD",
     maximumFractionDigits: 2,
   }).format(value);
+}
+
+function parseTaxCsv(text) {
+  const lines = text.trim().split(/\r?\n/).slice(1);
+  return lines
+    .map((line) => line.split(","))
+    .filter((parts) => parts.length >= 3)
+    .map(([min, max, rate]) => ({
+      min: Number(min),
+      max: max.trim().toLowerCase() === "inf" ? Number.POSITIVE_INFINITY : Number(max),
+      rate: Number(rate),
+    }));
+}
+
+async function loadTaxBrackets(csvPath) {
+  if (taxBracketCache.has(csvPath)) {
+    return taxBracketCache.get(csvPath);
+  }
+
+  const response = await fetch(csvPath);
+  if (!response.ok) {
+    throw new Error(`Unable to load tax data from ${csvPath}.`);
+  }
+
+  const brackets = parseTaxCsv(await response.text());
+  taxBracketCache.set(csvPath, brackets);
+  return brackets;
+}
+
+function calcTax(income, brackets) {
+  let tax = 0;
+  for (const row of brackets) {
+    if (income <= row.min) {
+      break;
+    }
+    const taxable = Math.min(income, row.max) - row.min;
+    tax += taxable * row.rate;
+  }
+  return tax;
 }
 
 if (budgetForm && budgetStatus && budgetResults) {
@@ -38,36 +85,51 @@ if (budgetForm && budgetStatus && budgetResults) {
       pretax_401k_percent: Number(formData.get("pretax_401k_percent") || 0),
     };
 
+    const taxDir = budgetForm.dataset.taxDir || "../project-files/budget-scripts";
+    const federalPath = new URL(`${taxDir}/federal.csv`, window.location.href).href;
+    const statePath = new URL(
+      `${taxDir}/${budgetStateNames[payload.state_code].toLowerCase()}.csv`,
+      window.location.href
+    ).href;
+
     budgetStatus.textContent = "Calculating...";
     budgetResults.hidden = true;
 
     try {
-      const response = await fetch("/api/budget-summary", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const contentType = response.headers.get("content-type") || "";
-      if (!contentType.includes("application/json")) {
-        throw new Error(
-          "Budget API unavailable. Start the site with `python3 server.py` instead of a static server."
-        );
+      if (!budgetStateNames[payload.state_code]) {
+        throw new Error("Unsupported state selection.");
+      }
+      if (payload.gross_income <= 0) {
+        throw new Error("Gross income must be greater than 0.");
+      }
+      if (payload.pretax_401k_percent < 0 || payload.pretax_401k_percent > 100) {
+        throw new Error("401(k) percent must be between 0 and 100.");
       }
 
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.error || "Request failed.");
-      }
+      const [federalBrackets, stateBrackets] = await Promise.all([
+        loadTaxBrackets(federalPath),
+        loadTaxBrackets(statePath),
+      ]);
 
-      budgetResults.querySelector('[data-result="state_name"]').textContent = data.state_name;
-      budgetResults.querySelector('[data-result="federal_tax"]').textContent = formatCurrency(data.federal_tax);
-      budgetResults.querySelector('[data-result="state_tax"]').textContent = formatCurrency(data.state_tax);
-      budgetResults.querySelector('[data-result="net_income"]').textContent = formatCurrency(data.net_income);
-      budgetResults.querySelector('[data-result="monthly_net_income"]').textContent = formatCurrency(data.monthly_net_income);
-      budgetResults.querySelector('[data-result="pretax_401k"]').textContent = formatCurrency(data.pretax_401k);
+      const pretax401k = payload.gross_income * (payload.pretax_401k_percent / 100);
+      const taxableIncome = Math.max(payload.gross_income - pretax401k, 0);
+      const federalTax = calcTax(taxableIncome, federalBrackets);
+      const stateTax = calcTax(taxableIncome, stateBrackets);
+      const netIncome = payload.gross_income - pretax401k - federalTax - stateTax;
+      const monthlyNetIncome = netIncome / 12;
+
+      budgetResults.querySelector('[data-result="state_name"]').textContent =
+        budgetStateNames[payload.state_code];
+      budgetResults.querySelector('[data-result="federal_tax"]').textContent =
+        formatCurrency(federalTax);
+      budgetResults.querySelector('[data-result="state_tax"]').textContent =
+        formatCurrency(stateTax);
+      budgetResults.querySelector('[data-result="net_income"]').textContent =
+        formatCurrency(netIncome);
+      budgetResults.querySelector('[data-result="monthly_net_income"]').textContent =
+        formatCurrency(monthlyNetIncome);
+      budgetResults.querySelector('[data-result="pretax_401k"]').textContent =
+        formatCurrency(pretax401k);
 
       budgetStatus.textContent = "";
       budgetResults.hidden = false;
