@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laser Microscopy Tissue Imaging | Brenton Yasuoka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="../index.html">Brenton Yasuoka</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../resume.html">Resume</a>
+          <a class="is-active" href="../projects.html">Project Portfolios</a>
+        </nav>
+      </header>
+
+      <main class="content-page">
+        <section class="page-intro project-hero">
+          <div>
+            <p class="eyebrow">Senior Design / Research</p>
+            <h1>Laser Microscopy Tissue Imaging</h1>
+            <p>
+              This project focused on making reflectance confocal microscopy more practical and
+              accessible by pairing an affordable automated Z-stage with validation through
+              interferometry and a computational pipeline for turning image stacks into 3D models.
+            </p>
+            <a class="text-link" href="../projects.html">Back to all project portfolios</a>
+          </div>
+          <img
+            class="project-hero-image"
+            src="../assets/laser-microscopy-placeholder.svg"
+            alt="Laser microscopy placeholder poster"
+          />
+        </section>
+
+        <section class="project-meta-grid">
+          <div class="panel">
+            <p class="section-kicker">Team</p>
+            <h2>Brenton Yasuoka, Alex Tocco, Anisha Kalla</h2>
+            <p>Advisor: Dr. Jesse Wilson</p>
+          </div>
+          <div class="panel">
+            <p class="section-kicker">Why It Matters</p>
+            <h2>Noninvasive skin imaging</h2>
+            <p>
+              The poster frames the problem around skin cancer diagnosis and the cost and invasiveness
+              of biopsy-based workflows, motivating a smaller and lower-cost RCM path.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Project Objectives</p>
+          <h2>Three connected technical goals</h2>
+          <div class="detail-grid">
+            <div>
+              <h3>Affordable automated Z-stage</h3>
+              <p>
+                Design and integrate a Z-staging mount capable of moving the sample through focus in a
+                controlled, repeatable way for reflectance confocal microscopy.
+              </p>
+            </div>
+            <div>
+              <h3>Validation through interferometry</h3>
+              <p>
+                Build a reliable validation approach using a Michelson interferometer so the
+                displacement behavior of the Z-stage can be checked against optical interference.
+              </p>
+            </div>
+            <div>
+              <h3>2D-to-3D reconstruction</h3>
+              <p>
+                Process image stacks with filtering, interpolation, and thresholding so OCT data can
+                be rendered into a usable 3D surface and exported toward printable geometry.
+              </p>
+            </div>
+            <div>
+              <h3>Future handheld system</h3>
+              <p>
+                Use the project as a stepping stone toward a handheld, less expensive RCM platform for
+                broader diagnostic access.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="two-column">
+          <div class="panel">
+            <p class="section-kicker">Methods</p>
+            <h2>Z-stage and validation workflow</h2>
+            <p>
+              The poster shows an exciter-driven Z-stage concept paired with a Michelson interferometer
+              validation setup. That pairing is important: the actuation system is only useful if the
+              displacement can be measured and trusted at the scale required for optical focusing.
+            </p>
+            <ul class="clean-list resume-list">
+              <li>Exciter-based actuation for sample positioning</li>
+              <li>Interferometric fringe observation for displacement validation</li>
+              <li>RCM optical path integration with relay optics, wave plates, and galvanometer mirrors</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <p class="section-kicker">Computation</p>
+            <h2>Image stack to 3D model</h2>
+            <p>
+              The OCT workflow used contrast enhancement, non-local means filtering, thresholding, and
+              stack interpolation to reconstruct a surface model from layered image data. That turns
+              raw imaging output into something easier to inspect, compare, and eventually validate.
+            </p>
+            <ul class="clean-list resume-list">
+              <li>Raw OCT layers cleaned into processed image slices</li>
+              <li>Interpolated stack assembled into a continuous 3D surface</li>
+              <li>Result exported as an STL-style model for downstream use</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Results</p>
+          <h2>What the poster demonstrates</h2>
+          <div class="detail-grid">
+            <div>
+              <h3>RCM operation after integration</h3>
+              <p>
+                The system remained operational after the new Z-stage and related modifications were
+                integrated, which is a meaningful systems-level result for an optics-heavy platform.
+              </p>
+            </div>
+            <div>
+              <h3>Reference imaging captured</h3>
+              <p>
+                Images were collected from a U.S. Air Force target and a human hair sample, showing the
+                microscope could still resolve straightforward reference specimens.
+              </p>
+            </div>
+            <div>
+              <h3>Interference fringes observed</h3>
+              <p>
+                Constructive and destructive interference patterns were captured, supporting the
+                interferometer as a useful validation tool even though precise displacement verification
+                was still unresolved.
+              </p>
+            </div>
+            <div>
+              <h3>3D reconstruction achieved</h3>
+              <p>
+                The team successfully reconstructed OCT image stacks into a printable 3D model, giving
+                the project a strong computational output in addition to the optical hardware work.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="two-column">
+          <div class="panel">
+            <p class="section-kicker">Engineering Takeaways</p>
+            <ul class="clean-list resume-list">
+              <li>The project spans mechanics, optics, validation, and image processing rather than a single isolated subsystem.</li>
+              <li>The work emphasizes feasibility: proving that an exciter-driven Z-stage can function in an RCM context.</li>
+              <li>Validation remains the hard part, which is often the reality in precision measurement projects.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <p class="section-kicker">Future Work</p>
+            <ul class="clean-list resume-list">
+              <li>Resolve accurate Z-displacement verification for the exciter-driven stage.</li>
+              <li>Ethically source and validate skin sample images and corresponding 3D models.</li>
+              <li>Continue toward a handheld, commercializable RCM platform for inexpensive diagnosis.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Project Files</p>
+          <div class="artifact-links">
+            <a class="button button-secondary" href="../project-files/laser-microscopy-sr-design/Edays poster print2.pdf" target="_blank" rel="noreferrer">Open senior design poster PDF</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<svg width="1200" height="820" viewBox="0 0 1200 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="820" rx="36" fill="#FAF7F1"/>
+  <rect x="45" y="45" width="1110" height="730" rx="24" fill="#FFFFFF" stroke="#1F6A52" stroke-width="8"/>
+  <rect x="45" y="45" width="1110" height="94" rx="24" fill="#1F6A52"/>
+  <text x="600" y="102" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Laser Microscopy Project Placeholder</text>
+  <rect x="95" y="182" width="310" height="220" rx="18" fill="#DDE4DD"/>
+  <rect x="445" y="182" width="310" height="220" rx="18" fill="#E8E0D0"/>
+  <rect x="795" y="182" width="260" height="220" rx="18" fill="#DDE4DD"/>
+  <rect x="95" y="430" width="440" height="280" rx="18" fill="#EEE7DA"/>
+  <rect x="565" y="430" width="490" height="280" rx="18" fill="#E3EBE6"/>
+  <text x="250" y="300" fill="#5F594F" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">Poster</text>
+  <text x="600" y="300" fill="#5F594F" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">Microscopy Image</text>
+  <text x="925" y="300" fill="#5F594F" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">Methods</text>
+  <text x="315" y="585" fill="#5F594F" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">Graphs / Results</text>
+  <text x="810" y="585" fill="#5F594F" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">Experimental Setup</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="48" fill="#E8ECE8"/>
+  <rect x="70" y="70" width="760" height="960" rx="36" fill="url(#paint0_linear_1_2)"/>
+  <circle cx="450" cy="340" r="148" fill="#D5B697"/>
+  <path d="M318 621C318 549.203 376.203 491 448 491H452C523.797 491 582 549.203 582 621V855H318V621Z" fill="#243848"/>
+  <path d="M360 873H540L606 1002H294L360 873Z" fill="#1D2D39"/>
+  <path d="M352 318C352 262.772 396.772 218 452 218C507.228 218 552 262.772 552 318V356H352V318Z" fill="#1A1A1A"/>
+  <rect x="352" y="391" width="200" height="65" rx="32.5" fill="#D5B697"/>
+  <text x="450" y="97" fill="#1F6A52" font-family="Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle">Headshot Placeholder</text>
+  <text x="450" y="1038" fill="#5F594F" font-family="Arial, sans-serif" font-size="30" text-anchor="middle">Replace this with your photo</text>
+  <defs>
+    <linearGradient id="paint0_linear_1_2" x1="124" y1="110" x2="778" y2="1029" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F1E8"/>
+      <stop offset="1" stop-color="#E0E5E0"/>
+    </linearGradient>
+  </defs>
+</svg>

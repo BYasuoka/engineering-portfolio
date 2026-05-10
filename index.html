@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brenton Yasuoka | Portfolio</title>
+    <meta
+      name="description"
+      content="Engineering portfolio for Brenton Yasuoka featuring biomedical, mechanical, and design projects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html">Brenton Yasuoka</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a class="is-active" href="index.html">Home</a>
+          <a href="resume.html">Resume</a>
+          <a href="projects.html">Project Portfolios</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Biomedical + Mechanical Engineering</p>
+            <h1>Building projects that connect design, analysis, and real-world making.</h1>
+            <p class="hero-text">
+              I’m Brenton Yasuoka, a Colorado State University student expected to graduate in May 2026
+              with B.S. degrees in Biomedical Engineering and Mechanical Engineering.
+            </p>
+            <p class="hero-location">Based in Fort Collins, Colorado</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="projects.html">View Project Portfolios</a>
+              <a class="button button-secondary" href="resume.html">View Resume</a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="portrait-frame">
+              <img
+                src="assets/images/bmes_headshot.jpeg"
+                alt="Professional headshot of Brenton Yasuoka"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="featured-band">
+          <div>
+            <p class="section-kicker">About Me</p>
+            <h2>Engineering student with one foot in research and the other in building things that actually work.</h2>
+          </div>
+          <p>
+            I enjoy projects that move between analysis and hands-on execution, whether that means
+            biomedical imaging, mechanical design, lab data processing, or writing software to make a
+            workflow easier to use and understand.
+          </p>
+        </section>
+
+        <section class="about-home panel">
+          <div class="about-copy">
+            <p class="section-kicker">About Me</p>
+            <h2>I like projects that ask for both technical depth and practical judgment.</h2>
+            <p>
+              My background spans biomedical engineering, mechanical engineering, student leadership,
+              research, and hands-on prototyping. I’m especially drawn to work where hardware,
+              computation, and design all have to come together in a way that is usable in the real
+              world.
+            </p>
+            <p>
+              Across this portfolio, that shows up in different forms: optical systems, CAD-driven
+              product concepts, data-processing tools for lab workflows, and small software utilities
+              built to answer real questions clearly.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="projects.html">Explore Project Portfolios</a>
+              <a class="button button-secondary" href="resume.html">Open Resume</a>
+            </div>
+          </div>
+
+          <div class="image-wheel-panel">
+            <p class="section-kicker">Visual Highlights</p>
+            <p class="image-wheel-copy">Scroll sideways to skim the kinds of work featured in the portfolio.</p>
+            <div class="image-wheel" aria-label="Scrollable gallery of portfolio images">
+              <figure class="wheel-card">
+                <img
+                  src="assets/images/bmes_headshot.jpeg"
+                  alt="Professional headshot of Brenton Yasuoka"
+                />
+                <figcaption>Professional portrait</figcaption>
+              </figure>
+              <figure class="wheel-card">
+                <img
+                  src="assets/laser-microscopy-placeholder.svg"
+                  alt="Laser microscopy project visual"
+                />
+                <figcaption>Laser microscopy senior design</figcaption>
+              </figure>
+              <figure class="wheel-card">
+                <img
+                  src="project-files/watch-winder/watchWinderImage1.png"
+                  alt="Automatic watch winder CAD render"
+                />
+                <figcaption>Automatic watch winder CAD</figcaption>
+              </figure>
+              <figure class="wheel-card">
+                <img
+                  src="assets/images/4130-steel-20c-1-stress-strain.png"
+                  alt="Generated 4130 steel stress strain graph"
+                />
+                <figcaption>Stress-strain analysis output</figcaption>
+              </figure>
+              <figure class="wheel-card">
+                <img
+                  src="assets/budget-scripts-placeholder.svg"
+                  alt="Budgeting scripts project visual"
+                />
+                <figcaption>Budgeting and tax tools</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

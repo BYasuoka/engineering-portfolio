@@ -1,0 +1,18 @@
+<svg width="1200" height="820" viewBox="0 0 1200 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="820" rx="36" fill="#F5F0E6"/>
+  <rect x="78" y="80" width="1044" height="660" rx="26" fill="#FFFDF9" stroke="#1F6A52" stroke-width="6"/>
+  <rect x="120" y="132" width="398" height="146" rx="20" fill="#1F6A52"/>
+  <rect x="550" y="132" width="530" height="64" rx="16" fill="#E6E0D4"/>
+  <rect x="550" y="214" width="530" height="64" rx="16" fill="#EFE9DD"/>
+  <rect x="120" y="322" width="960" height="330" rx="24" fill="#EEF3F0"/>
+  <path d="M190 585L318 510L450 542L604 404L760 454L940 344" stroke="#1F6A52" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="190" cy="585" r="16" fill="#1F6A52"/>
+  <circle cx="318" cy="510" r="16" fill="#1F6A52"/>
+  <circle cx="450" cy="542" r="16" fill="#1F6A52"/>
+  <circle cx="604" cy="404" r="16" fill="#1F6A52"/>
+  <circle cx="760" cy="454" r="16" fill="#1F6A52"/>
+  <circle cx="940" cy="344" r="16" fill="#1F6A52"/>
+  <text x="319" y="220" fill="white" font-family="Arial, sans-serif" font-size="36" font-weight="700" text-anchor="middle">Budget Scripts</text>
+  <text x="816" y="176" fill="#5F594F" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">Tax + retirement + budgeting</text>
+  <text x="816" y="257" fill="#5F594F" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">CSV-driven planning tools</text>
+</svg>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LabVIEW to Stress vs. Strain Pipeline | Brenton Yasuoka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="../index.html">Brenton Yasuoka</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../resume.html">Resume</a>
+          <a class="is-active" href="../projects.html">Project Portfolios</a>
+        </nav>
+      </header>
+
+      <main class="content-page">
+        <section class="page-intro project-hero">
+          <div>
+            <p class="eyebrow">Data Processing</p>
+            <h1>LabVIEW to Stress vs. Strain Pipeline</h1>
+            <p>
+              This project automates a common lab bottleneck: taking raw LabVIEW measurement files and
+              converting them into organized stress-strain outputs that are easier to analyze, compare,
+              and share across multiple trials or specimen groups.
+            </p>
+            <a class="text-link" href="../projects.html">Back to all project portfolios</a>
+          </div>
+          <img
+            class="project-hero-image"
+            src="../assets/images/4130-steel-20c-1-stress-strain.png"
+            alt="Generated stress strain curve from 4130 Steel 20C sample"
+          />
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Generated Sample Output</p>
+          <h2>Stress-strain curve from `4130 Steel 20C#1.lvm`</h2>
+          <p>
+            I ran the pipeline on the uploaded LabVIEW file and generated the plot below using the
+            current nominal script assumptions of 33.21 mm gauge length and 3.23 mm² cross-sectional
+            area. The graph shows both the global-displacement strain trace and the extensometer-based
+            strain trace against engineering stress.
+          </p>
+          <img
+            src="../assets/images/4130-steel-20c-1-stress-strain.png"
+            alt="Stress strain graph generated from 4130 Steel 20C sample"
+          />
+        </section>
+
+        <section class="project-meta-grid">
+          <div class="panel">
+            <p class="section-kicker">Inputs</p>
+            <h2>Raw `.lvm` data plus specimen dimensions</h2>
+            <p>
+              The scripts walk through folders of LabVIEW Measurement files, pair them with either
+              nominal or spreadsheet-based geometry values, and convert that raw data into usable
+              engineering quantities.
+            </p>
+          </div>
+          <div class="panel">
+            <p class="section-kicker">Outputs</p>
+            <h2>CSV cleanup, Excel workbooks, and averaged curves</h2>
+            <p>
+              The final output is not just one file. The pipeline creates intermediate CSVs, detailed
+              Excel sheets for each trial, and cumulative summary workbooks that average rounded
+              stress-strain data across repeated tests.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Processing Pipeline</p>
+          <h2>How the scripts transform raw measurement files</h2>
+          <div class="detail-grid">
+            <div>
+              <h3>1. Convert `.lvm` to CSV</h3>
+              <p>
+                The workflow opens each LabVIEW file, skips the header region, and writes the
+                tab-delimited body into CSV format so it can be processed with pandas.
+              </p>
+            </div>
+            <div>
+              <h3>2. Remove nonessential rows</h3>
+              <p>
+                The scripts explicitly strip the first nine rows from the converted CSVs, creating
+                “update” files that keep the later analysis focused on the useful signal.
+              </p>
+            </div>
+            <div>
+              <h3>3. Compute strain and stress</h3>
+              <p>
+                For every data row, the pipeline calculates global-displacement strain, extensometer
+                strain, and engineering stress based on specimen length, area, and measured force.
+              </p>
+            </div>
+            <div>
+              <h3>4. Round and average trials</h3>
+              <p>
+                Strain values are rounded to the nearest 0.005 and grouped so multiple data points can
+                be averaged into cleaner stress-strain curves.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="two-column">
+          <div class="panel">
+            <p class="section-kicker">Version History Visible In The Folder</p>
+            <h2>Prototype and documented variants</h2>
+            <p>
+              The folder includes both an earlier working version and a more heavily commented version.
+              That is useful from a portfolio perspective because it shows not only the underlying
+              workflow, but also an effort to explain and package the process for reuse.
+            </p>
+            <ul class="clean-list resume-list">
+              <li>`LVM2StressvStrain.py` shows the broader working approach and Excel aggregation logic.</li>
+              <li>`LVM2StessvStrainComm.py` explains the same pipeline in a more readable, documented style.</li>
+              <li>Plotting hooks are present, suggesting the workflow was intended to support direct curve visualization too.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <p class="section-kicker">Engineering Value</p>
+            <h2>Turning repetitive lab cleanup into a repeatable workflow</h2>
+            <p>
+              This project is valuable because it reduces manual spreadsheet work and makes trial
+              comparison more systematic. In lab settings, that kind of workflow automation can save a
+              large amount of time and reduce mistakes when handling many files.
+            </p>
+            <ul class="clean-list resume-list">
+              <li>Supports multiple trials and naming conventions</li>
+              <li>Handles both nominal and spreadsheet-based specimen dimensions</li>
+              <li>Exports detailed and cumulative results for easier reporting</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Opportunities To Improve</p>
+          <h2>What I would refine in the next version</h2>
+          <div class="detail-grid">
+            <div>
+              <h3>Path portability</h3>
+              <p>
+                The current scripts rely on hardcoded desktop paths, so moving to relative paths and a
+                configuration file would make the pipeline easier to reuse on other machines.
+              </p>
+            </div>
+            <div>
+              <h3>Function boundaries</h3>
+              <p>
+                There is already good modular structure in places, but more separation between file I/O,
+                calculations, and report generation would make testing easier.
+              </p>
+            </div>
+            <div>
+              <h3>Error handling</h3>
+              <p>
+                Additional checks for missing columns, inconsistent file naming, or empty trial sets
+                would make the workflow more robust for classmates or teammates.
+              </p>
+            </div>
+            <div>
+              <h3>Automated plotting outputs</h3>
+              <p>
+                Saving plots directly to image files or report-ready figures would make the final step
+                of sharing results even smoother.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Project Files</p>
+          <div class="artifact-links">
+            <a class="button button-secondary" href="../project-files/labview-to-stress-strain/data/4130 Steel 20C#1.lvm" target="_blank" rel="noreferrer">Open sample LVM file</a>
+            <a class="button button-secondary" href="../project-files/labview-to-stress-strain/generate_single_curve.py" target="_blank" rel="noreferrer">Open single-file plot script</a>
+            <a class="button button-secondary" href="../project-files/labview-to-stress-strain/LVM2StressvStrain.py" target="_blank" rel="noreferrer">Open original workflow script</a>
+            <a class="button button-secondary" href="../project-files/labview-to-stress-strain/LVM2StessvStrainComm.py" target="_blank" rel="noreferrer">Open documented script version</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

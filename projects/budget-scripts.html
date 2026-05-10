@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budgeting and Tax Planning Scripts | Brenton Yasuoka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="../index.html">Brenton Yasuoka</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../index.html">Home</a>
+          <a href="../resume.html">Resume</a>
+          <a class="is-active" href="../projects.html">Project Portfolios</a>
+        </nav>
+      </header>
+
+      <main class="content-page">
+        <section class="page-intro project-hero">
+          <div>
+            <p class="eyebrow">Python Tooling</p>
+            <h1>Budgeting and Tax Planning Scripts</h1>
+            <p>
+              This project is a personal finance scripting toolkit built in Python. Across the files in
+              the folder, the work evolves from quick back-of-the-envelope calculations into
+              CSV-driven tax analysis, retirement scenario modeling, and structured budgeting outputs
+              shown with Matplotlib tables.
+            </p>
+            <a class="text-link" href="../projects.html">Back to all project portfolios</a>
+          </div>
+          <img
+            class="project-hero-image"
+            src="../assets/budget-scripts-placeholder.svg"
+            alt="Budgeting and tax planning scripts graphic"
+          />
+        </section>
+
+        <section class="project-meta-grid">
+          <div class="panel">
+            <p class="section-kicker">Project Scope</p>
+            <h2>Decision support for real budgeting questions</h2>
+            <p>
+              The scripts answer practical questions like where take-home pay goes after federal and
+              state taxes, how retirement contributions affect spendable income, and how commuting
+              changes monthly cost.
+            </p>
+          </div>
+          <div class="panel">
+            <p class="section-kicker">Inputs</p>
+            <h2>CSV tax brackets plus user-entered assumptions</h2>
+            <p>
+              Federal and state bracket files are stored as CSVs, while the user provides gross income,
+              retirement contribution levels, commute distance, or state selection depending on the
+              specific script.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Interactive Demo</p>
+          <h2>Try the Python-backed budget summary</h2>
+          <p>
+            This form sends your inputs to a small Python API that uses the same progressive tax logic
+            as the budgeting scripts in this project folder.
+          </p>
+          <form class="budget-form" data-budget-form>
+            <label class="field">
+              <span>Gross annual income</span>
+              <input type="number" name="gross_income" min="0" step="1" placeholder="85000" required />
+            </label>
+            <label class="field">
+              <span>State</span>
+              <select name="state_code" required>
+                <option value="CO">Colorado</option>
+                <option value="CA">California</option>
+                <option value="WI">Wisconsin</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="WA">Washington</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Pre-tax 401(k) contribution %</span>
+              <input type="number" name="pretax_401k_percent" min="0" max="100" step="0.5" value="0" />
+            </label>
+            <button class="button button-primary" type="submit">Calculate Summary</button>
+          </form>
+
+          <p class="form-status" data-budget-status></p>
+
+          <div class="budget-results" data-budget-results hidden>
+            <div class="result-card">
+              <span>State</span>
+              <strong data-result="state_name"></strong>
+            </div>
+            <div class="result-card">
+              <span>Federal tax</span>
+              <strong data-result="federal_tax"></strong>
+            </div>
+            <div class="result-card">
+              <span>State tax</span>
+              <strong data-result="state_tax"></strong>
+            </div>
+            <div class="result-card">
+              <span>Net income</span>
+              <strong data-result="net_income"></strong>
+            </div>
+            <div class="result-card">
+              <span>Monthly net</span>
+              <strong data-result="monthly_net_income"></strong>
+            </div>
+            <div class="result-card">
+              <span>Pre-tax 401(k)</span>
+              <strong data-result="pretax_401k"></strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">What The Folder Shows</p>
+          <h2>A project that matured through iteration</h2>
+          <div class="detail-grid">
+            <div>
+              <h3>Early comparison workflow</h3>
+              <p>
+                `Tax_calculator.py` compares California and Colorado by computing progressive federal
+                and state taxes, then visualizes different monthly budget splits for each location.
+              </p>
+            </div>
+            <div>
+              <h3>Interactive scenario modeling</h3>
+              <p>
+                `Tax_calculator_2.py` expands the idea by letting the user choose a state and model how
+                401(k) and Roth IRA contributions change monthly net income.
+              </p>
+            </div>
+            <div>
+              <h3>Pay-period-specific refinement</h3>
+              <p>
+                The Wisconsin-focused scripts (`Tax_calculator_MKE.py` and
+                `Tax_calculator_MKE_monthly.py`) adapt the same logic for biweekly and monthly planning,
+                showing a nice awareness that budgeting depends on how pay is actually received.
+              </p>
+            </div>
+            <div>
+              <h3>Supporting utilities</h3>
+              <p>
+                `DrivingExpense_Caclulator.py` estimates commute fuel cost, while `401kMatch.py` is a
+                fast calculator for employer match comparisons. Together they show a toolkit mindset
+                rather than a single one-off script.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="two-column">
+          <div class="panel">
+            <p class="section-kicker">Technical Approach</p>
+            <h2>Data-driven progressive tax calculation</h2>
+            <p>
+              The strongest architectural choice in these scripts is storing tax brackets in CSV files
+              with `min`, `max`, and `rate` columns. That keeps the computational logic reusable while
+              making state-specific updates a data maintenance task instead of a code rewrite.
+            </p>
+            <ul class="clean-list resume-list">
+              <li>Bracket rows are loaded and normalized, including support for an infinite upper bound.</li>
+              <li>Taxes are computed progressively by iterating bracket intervals and taxing only the relevant slice of income.</li>
+              <li>Pretax deductions are handled separately so retirement scenarios can be modeled against adjusted taxable income.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <p class="section-kicker">Presentation</p>
+            <h2>Structured financial outputs instead of raw console text</h2>
+            <p>
+              Rather than stopping at a printed number, the later scripts build scenario tables and
+              budget allocation tables with Matplotlib. That makes the output more readable and closer
+              to a decision-support dashboard.
+            </p>
+            <ul class="clean-list resume-list">
+              <li>Scenario tables compare no retirement, 401(k)-only, Roth-only, and combined plans.</li>
+              <li>Budget splits translate take-home pay into needs, wants, and savings targets.</li>
+              <li>Monthly and biweekly variants adapt the same logic to different pay cadences.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel full-width-panel">
+          <p class="section-kicker">Why This Project Is Strong</p>
+          <h2>It connects coding directly to decision making</h2>
+          <p>
+            A lot of small automation projects stop at “the script runs.” This set of files goes a step
+            further by turning tax brackets, contribution choices, and recurring expenses into clear
+            tradeoff views. That is a useful engineering instinct: build tools that help people evaluate
+            options instead of only producing intermediate calculations.
+          </p>
+        </section>
+
+        <section class="two-column">
+          <div class="panel">
+            <p class="section-kicker">Next Improvements</p>
+            <ul class="clean-list resume-list">
+              <li>Replace hardcoded absolute paths with project-relative paths so the toolkit is portable.</li>
+              <li>Unify the repeated tax functions into one reusable module shared across scripts.</li>
+              <li>Add input validation and a command-line interface for cleaner user interaction.</li>
+              <li>Export plots or summaries as files so results can be saved or compared over time.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <p class="section-kicker">Project Files</p>
+            <div class="artifact-links stacked-links">
+              <a class="button button-secondary" href="../project-files/budget-scripts/Tax_calculator.py" target="_blank" rel="noreferrer">Open CA vs CO tax comparison</a>
+              <a class="button button-secondary" href="../project-files/budget-scripts/Tax_calculator_2.py" target="_blank" rel="noreferrer">Open retirement scenario script</a>
+              <a class="button button-secondary" href="../project-files/budget-scripts/Tax_calculator_MKE_monthly.py" target="_blank" rel="noreferrer">Open Wisconsin monthly planner</a>
+              <a class="button button-secondary" href="../project-files/budget-scripts/DrivingExpense_Caclulator.py" target="_blank" rel="noreferrer">Open commute cost script</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

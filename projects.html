@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Portfolios | Brenton Yasuoka</title>
+    <meta
+      name="description"
+      content="Project portfolio page for Brenton Yasuoka featuring engineering, design, and research work."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html">Brenton Yasuoka</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="resume.html">Resume</a>
+          <a class="is-active" href="projects.html">Project Portfolios</a>
+        </nav>
+      </header>
+
+      <main class="content-page">
+        <section class="page-intro">
+          <p class="eyebrow">Project Portfolios</p>
+          <h1>Project writeups, builds, and technical case studies.</h1>
+          <p>
+            These pages are based on the real folders, scripts, poster files, and renders stored in
+            this portfolio. Each card opens a more detailed writeup with linked artifacts.
+          </p>
+        </section>
+
+        <section class="project-grid">
+          <article class="project-card project-card-large">
+            <div class="project-media">
+              <img
+                src="assets/laser-microscopy-placeholder.svg"
+                alt="Laser microscopy project placeholder"
+              />
+            </div>
+            <div class="project-body">
+              <p class="project-tag">Senior Design</p>
+              <h3>Laser Microscopy Tissue Imaging</h3>
+              <p>
+                An RCM senior design project centered on noninvasive skin imaging, automated Z-stage
+                actuation, interferometric validation, and 3D reconstruction from image stacks.
+              </p>
+              <a href="projects/laser-microscopy.html" class="text-link">Open project page</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img
+                src="project-files/watch-winder/watchWinderImage1.png"
+                alt="Automatic watch winder CAD render"
+              />
+            </div>
+            <div class="project-body">
+              <p class="project-tag">Mechanical Design</p>
+              <h3>Automatic Watch Winder</h3>
+              <p>
+                A compact watch winder concept documented from the available CAD render, with focus on
+                the enclosure geometry, rotating watch mount, and next mechanical validation steps.
+              </p>
+              <a href="projects/watch-winder.html" class="text-link">Read case study</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img
+                src="assets/budget-scripts-placeholder.svg"
+                alt="Budgeting and tax planning scripts project graphic"
+              />
+            </div>
+            <div class="project-body">
+              <p class="project-tag">Python Tooling</p>
+              <h3>Budgeting and Tax Planning Scripts</h3>
+              <p>
+                A personal finance toolkit that evolved from tax comparisons into retirement scenario
+                modeling, pay-period budgeting, and commute-cost estimation.
+              </p>
+              <a href="projects/budget-scripts.html" class="text-link">Open project page</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img
+                src="assets/images/4130-steel-20c-1-stress-strain.png"
+                alt="Generated 4130 steel stress strain graph"
+              />
+            </div>
+            <div class="project-body">
+              <p class="project-tag">Data Processing</p>
+              <h3>LabVIEW to Stress vs. Strain Pipeline</h3>
+              <p>
+                A Python workflow for converting `.lvm` files, calculating engineering stress and
+                strain, averaging rounded trials, and exporting structured Excel workbooks.
+              </p>
+              <a href="projects/labview-stress-strain.html" class="text-link">Open project page</a>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

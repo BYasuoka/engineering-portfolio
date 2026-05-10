@@ -1,0 +1,11 @@
+<svg width="1200" height="820" viewBox="0 0 1200 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="820" rx="36" fill="#F6F2EA"/>
+  <rect x="92" y="88" width="1016" height="644" rx="28" fill="#FFFDF9" stroke="#D3CCBE" stroke-width="6"/>
+  <path d="M184 598L306 534L432 442L556 370L692 320L824 266L964 214" stroke="#1F6A52" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M184 598L184 202H998" stroke="#5F594F" stroke-width="10" stroke-linecap="round"/>
+  <rect x="748" y="458" width="256" height="164" rx="18" fill="#E7EFEA"/>
+  <text x="876" y="525" fill="#1F6A52" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">LVM</text>
+  <text x="876" y="570" fill="#5F594F" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">to CSV</text>
+  <text x="876" y="610" fill="#5F594F" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">to Excel</text>
+  <text x="600" y="146" fill="#1F6A52" font-family="Arial, sans-serif" font-size="38" font-weight="700" text-anchor="middle">Stress vs. Strain Processing Pipeline</text>
+</svg>
