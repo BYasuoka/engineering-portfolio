@@ -1,0 +1,184 @@
+Thermal Ribbon Respooling System
+Automation Engineer Intern | Kodak Alaris | Summer 2025
+
+PROJECT OVERVIEW
+
+During my internship with Kodak Alaris, I designed and implemented a custom automated thermal ribbon respooling system that transformed a manually intensive prototype process into a repeatable production-ready machine.
+
+The system was developed to identify and isolate defects in large rolls of thermal transfer ribbon. Previously, operators had limited options when defects were discovered in a roll, often requiring significant manual effort to locate and recover usable material. The new system allows operators to accurately rewind and reposition ribbon to a desired location, enabling efficient defect isolation and reducing material waste.
+
+The project progressed from concept development through final deployment and involved mechanical design, controls programming, motion control, electrical integration, pneumatics, and operator interface development.
+
+PROBLEM STATEMENT
+
+Kodak Alaris produces thermal transfer ribbon in rolls approximately 1,000 feet long.
+
+When a defect was discovered within a roll, operators needed a reliable way to:
+- Locate the defect position
+- Rewind the material to a precise location
+- Separate defective material from usable material
+- Minimize operator time and material waste
+
+Existing solutions were either overly large, costly, or not optimized for this specific workflow.
+
+The goal was to create a compact automated machine capable of accurately tracking ribbon position while providing a simple operator experience.
+
+PROJECT OBJECTIVES
+
+- Develop a production-ready respooling system
+- Track ribbon position throughout the rewind process
+- Achieve accurate positioning over long ribbon lengths
+- Create an intuitive operator interface
+- Reduce manual labor required for defect isolation
+- Integrate motion control, sensing, and automation hardware into a single machine
+- Deliver a cost-effective solution suitable for manufacturing use
+
+SYSTEM ARCHITECTURE
+
+Motion Control
+- Stepper motor-driven spool system
+- Variable-speed ribbon transport
+- Automated rewind and positioning functions
+
+Position Feedback
+- Incremental encoder monitored ribbon movement
+- Encoder served as the primary position-tracking device
+
+PLC Control
+- Allen-Bradley RSLogix 500
+- Allen-Bradley RSLogix 5000
+
+PLC coordinated:
+- Motion commands
+- Encoder tracking
+- Operator inputs
+- Machine states
+- Pneumatic actuation
+
+Human Machine Interface (HMI)
+- Allen-Bradley Connected Components Workbench
+
+Operator functions:
+- Enter target positions
+- Start rewind operations
+- Monitor machine status
+- View system information
+
+Pneumatics
+- Pneumatic components integrated for material handling and machine functionality
+
+MAJOR TECHNICAL CHALLENGES
+
+Encoder Signal Compatibility
+
+Initial Condition
+- Encoder output: NPN
+- PLC input expectation: PNP
+
+Solution
+- Implemented a relay interface to convert encoder signals into a PLC-compatible format
+
+Long-Distance Position Accuracy
+
+Challenge
+- Small counting errors accumulate over long distances
+
+Result
+- Approximately ±5 mm accuracy over 10 meters of travel
+
+Motion Command Interface
+
+Solution
+- Implemented a 4-bit command architecture between PLC and motor controller
+- Allowed 16 possible command combinations
+- 15 defined machine actions
+
+HARDWARE USED
+
+Controls
+- Allen-Bradley PLCs
+- RSLogix 500
+- RSLogix 5000
+
+HMI
+- Allen-Bradley Connected Components Workbench
+
+Motion
+- Schneider Electric Lexium MDrive integrated stepper motor
+
+Sensing
+- Incremental encoder
+
+Mechanical
+- Custom ribbon handling system
+- Spooling mechanism
+- Vacuum table for ribbon control
+
+Pneumatics
+- Pneumatic actuation components
+
+SOFTWARE AND PROGRAMMING
+
+PLC Programming
+- State machines
+- Motion control sequences
+- Safety logic
+- Position tracking
+- Operator interactions
+
+HMI Development
+- System control
+- Position entry
+- Status monitoring
+- Machine operation
+
+Python Modeling
+- Encoder calculation verification
+- Position-tracking validation
+- Counting logic testing
+
+PROJECT MANAGEMENT
+
+Budget
+- Approximate project cost: $2,500
+
+Team Structure
+- 6 engineers
+- 3 external suppliers/vendors
+
+Responsibilities
+- Design reviews
+- Vendor coordination
+- Component selection
+- System testing
+- Final implementation
+
+RESULTS
+
+The completed machine successfully:
+- Automated the ribbon respooling process
+- Reduced manual operator effort
+- Enabled rapid defect isolation
+- Improved material recovery
+- Provided accurate ribbon position tracking
+- Delivered a compact and cost-effective manufacturing solution
+
+SKILLS DEMONSTRATED
+
+- Industrial Automation
+- PLC Programming
+- Allen-Bradley Controls
+- RSLogix 500 / 5000
+- HMI Development
+- Motion Control
+- Stepper Motor Integration
+- Encoder Feedback Systems
+- Industrial Electrical Design
+- Pneumatics
+- Python Development
+- Manufacturing Engineering
+- Troubleshooting
+- Cross-Functional Collaboration
+- Vendor Management
+- System Validation
+- Production Equipment Development
