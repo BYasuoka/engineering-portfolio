@@ -74,7 +74,7 @@
 
         <section class="panel full-width-panel">
           <p class="section-kicker">Interactive Demo</p>
-          <h2>Try the browser-based budget summary</h2>
+          <h2>Try the programming demonstration</h2><p>This simplified demonstration uses stored example tax brackets, not verified current-year tax data. It subtracts modeled federal and state income tax and a percentage-based retirement contribution. It excludes standard deductions, payroll taxes, credits, and contribution limits; results are not a complete take-home-pay estimate.</p>
           <p>
             This form runs directly in the browser using the same tax-bracket CSV files stored in this
             project folder, so it still works when the portfolio is hosted on GitHub Pages.
@@ -101,7 +101,7 @@
             <button class="button button-primary" type="submit">Calculate Summary</button>
           </form>
 
-          <p class="form-status" data-budget-status></p>
+          <p class="form-status" data-budget-status role="status" aria-live="polite"></p>
 
           <div class="budget-results" data-budget-results hidden>
             <div class="result-card">
@@ -117,11 +117,11 @@
               <strong data-result="state_tax"></strong>
             </div>
             <div class="result-card">
-              <span>Net income</span>
+              <span>Annual remainder (simplified)</span>
               <strong data-result="net_income"></strong>
             </div>
             <div class="result-card">
-              <span>Monthly net</span>
+              <span>Monthly remainder (simplified)</span>
               <strong data-result="monthly_net_income"></strong>
             </div>
             <div class="result-card">

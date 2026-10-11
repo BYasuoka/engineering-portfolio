@@ -601,6 +601,8 @@ h2 {
   font-weight: 700;
 }
 
+.budget-results[hidden] { display: none; }
+
 .budget-results {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
